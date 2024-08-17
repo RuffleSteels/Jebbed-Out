@@ -4,8 +4,8 @@
     "srcrgb": "srcalpha",
     "dstrgb": "1-srcalpha"
   },
-  "vertex": "firorize/rendertype_custom_tint",
-  "fragment": "firorize/rendertype_custom_tint",
+  "vertex": "jebbed/rendertype_custom_tint",
+  "fragment": "jebbed/rendertype_custom_tint",
   "attributes": [
     "Position",
     "Color",

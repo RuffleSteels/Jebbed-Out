@@ -1,4 +1,4 @@
-package com.oscimate.firorize;
+package com.oscimate.jebbed;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

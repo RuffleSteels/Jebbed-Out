@@ -1,4 +1,4 @@
-package com.oscimate.firorize;
+package com.oscimate.jebbed;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.ShaderProgram;
@@ -24,12 +24,4 @@ public class GameRendererSetting extends GameRenderer {
     @Nullable
     public static ShaderProgram renderTypeCustomTint;
 
-    @Nullable
-    public static ShaderProgram getRenderTypeColorWheel() {
-        return renderTypeColorWheel;
-    }
-
-
-    @Nullable
-    public static ShaderProgram renderTypeColorWheel;
 }

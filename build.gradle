@@ -4,7 +4,7 @@ plugins {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/firorize.accesswidener")
+	accessWidenerPath = file("src/main/resources/jebbed.accesswidener")
 }
 
 version = project.mod_version
@@ -14,10 +14,6 @@ group = project.maven_group
 archivesBaseName  = project.archives_base_name
 
 repositories {
-	maven {
-		name 'Terraformers'
-		url 'https://maven.terraformersmc.com/releases/'
-	}
 	maven {
 		url = "https://jitpack.io"
 	}
@@ -29,10 +25,6 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
-	maven {
-		name = 'Nucleoid'
-		url = 'https://maven.nucleoid.xyz/'
-	}
 }
 
 dependencies {
@@ -42,13 +34,11 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.4.1")))
 
 	include(implementation('org.apache.commons:commons-collections4:4.5.0-M2'))
 
-	modImplementation(include("eu.pb4:placeholder-api:${project.text_placeholder_api_version}"))
 }
 
 processResources {
