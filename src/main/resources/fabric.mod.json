@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "firorize",
+  "version": "1.0",
+
+  "name": "Firorize",
+  "description": "This client side mod allows full color customization over fire, depending on the biome it's in, or even the block it's on! It also has a fire height slider for an easy fix to that painfully large fire overlay. For a bonus, it fixes the bug where the soul fire did not produce a blue overlay!",
+  "authors": [
+    "RuffleSteels"
+  ],
+  "contact": {
+    "homepage": "https://github.com/RuffleSteels/Firorize",
+    "sources": "https://github.com/RuffleSteels/Firorize",
+    "issues": "https://github.com/RuffleSteels/Firorize/issues"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/firorize/Icon.png",
+
+  "accessWidener" : "firorize.accesswidener",
+  "environment": "*",
+  "entrypoints": {
+    "modmenu": [
+      "com.oscimate.firorize.config.ModMenuApiImpl"
+    ],
+    "preLaunch": [ "com.llamalad7.mixinextras.MixinExtrasBootstrap::init" ],
+    "client": [
+      "com.oscimate.firorize.Main"
+    ]
+  },
+  "mixins": [
+    "firorize.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14",
+    "fabric": "*",
+    "minecraft": "~1.21",
+    "java": ">=21",
+    "fabric-api": ">=0.100.2+1.21",
+    "modmenu": ">=11.0.0"
+  }
+}
