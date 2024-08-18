@@ -16,7 +16,15 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(FeatureRenderer.class)
 public class FeatureRendererMixin {
     @ModifyExpressionValue(method = "renderModel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/RenderLayer;getEntityCutoutNoCull(Lnet/minecraft/util/Identifier;)Lnet/minecraft/client/render/RenderLayer;"))
-    private static RenderLayer test(RenderLayer original, EntityModel<LivingEntity> model, Identifier texture, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, int i) {
+    private static RenderLayer test(RenderLayer original, EntityModel<LivingEntity> model,
+                                    Identifier texture,
+                                    MatrixStack matrices,
+                                    VertexConsumerProvider vertexConsumers,
+                                    int light,
+                                    LivingEntity entity,
+                                    float red,
+                                    float green,
+                                    float blue) {
         if (Main.shadersOff() && entity.hasCustomName() && entity.getCustomName().getString().equals("jeb_")) {
             return CustomRenderLayer.getCustomTint(texture);
         }

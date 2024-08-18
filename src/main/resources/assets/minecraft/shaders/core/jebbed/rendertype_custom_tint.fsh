@@ -53,10 +53,10 @@ vec3 HSVtoRGB(in vec3 HSV)
 void main() {
     vec4 textureColor = texture(Sampler0, texCoord0);
 
-    vec3 greyScale = vec3(.5, .5, .0);
-    textureColor = vec4( vec3(dot( textureColor.rgb, greyScale)), textureColor.a);
-
-    vec3 initialHSV = vec3(Time/100f, 0.8f, 0.1f);
+    vec3 greyScale = vec3(.5, .5, .5);
+//    textureColor = vec4( vec3(dot( textureColor.rgb, greyScale)), textureColor.a);
+    textureColor = (textureColor - 0.5) / 0.5 * 0.4 + 0.5;
+    vec3 initialHSV = vec3(Time/100f, 0.8f, .3f);
     float v = initialHSV.y * 100 - 50;
     float hue = initialHSV.x;
     float result;
