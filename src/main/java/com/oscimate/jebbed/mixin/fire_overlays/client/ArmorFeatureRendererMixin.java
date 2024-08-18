@@ -9,11 +9,12 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,13 +30,13 @@ public class ArmorFeatureRendererMixin {
     @Unique
     EquipmentSlot armorSlot;
 
-    @Inject(method = "renderArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/feature/ArmorFeatureRenderer;renderArmorParts(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/model/BipedEntityModel;ILnet/minecraft/util/Identifier;)V"))
+    @Inject(method = "renderArmor", at = @At(value = "HEAD"))
     private void test(MatrixStack matrices, VertexConsumerProvider vertexConsumers, LivingEntity entity, EquipmentSlot armorSlot, int light, BipedEntityModel<LivingEntity> model, CallbackInfo ci) {
         this.renderingEntity = entity;
         this.armorSlot = armorSlot;
     }
     @ModifyExpressionValue(method = "renderArmorParts", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/RenderLayer;getArmorCutoutNoCull(Lnet/minecraft/util/Identifier;)Lnet/minecraft/client/render/RenderLayer;"))
-    private RenderLayer test(RenderLayer original, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, BipedEntityModel<LivingEntity> model, int i, Identifier identifier) {
+    private RenderLayer test(RenderLayer original, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, ArmorItem item, BipedEntityModel<LivingEntity> model, boolean secondTextureLayer, float red, float green, float blue, @Nullable String overlay) {
         ItemStack stack = renderingEntity.getEquippedStack(armorSlot);
         if (Main.shadersOff() && !stack.isEmpty() && stack.get(DataComponentTypes.CUSTOM_NAME) != null && stack.get(DataComponentTypes.CUSTOM_NAME).getString().equals("jeb_")) {
             return CustomRenderLayer.getCustomTint(identifier);
@@ -43,7 +44,7 @@ public class ArmorFeatureRendererMixin {
         return original;
     }
 
-    @ModifyExpressionValue(method = "renderTrim", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/TexturedRenderLayers;getArmorTrims(Z)Lnet/minecraft/client/render/RenderLayer;"))
+    @ModifyExpressionValue(method = "renderTrim", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/TexturedRenderLayers;getArmorTrims()Lnet/minecraft/client/render/RenderLayer;"))
     private RenderLayer test(RenderLayer original) {
         ItemStack stack = renderingEntity.getEquippedStack(armorSlot);
         if (Main.shadersOff() && !stack.isEmpty() && stack.get(DataComponentTypes.CUSTOM_NAME) != null && stack.get(DataComponentTypes.CUSTOM_NAME).getString().equals("jeb_")) {

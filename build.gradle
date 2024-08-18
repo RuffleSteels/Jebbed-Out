@@ -29,10 +29,6 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
-	maven {
-		name = 'Nucleoid'
-		url = 'https://maven.nucleoid.xyz/'
-	}
 }
 
 dependencies {
@@ -47,7 +43,6 @@ dependencies {
 	include(implementation('org.apache.commons:commons-collections4:4.5.0-M2'))
 
 	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
-	modImplementation(include("eu.pb4:placeholder-api:${project.text_placeholder_api_version}"))
 
 	modImplementation "maven.modrinth:iris:${project.iris_version}"
 
