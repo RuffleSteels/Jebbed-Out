@@ -1,5 +1,9 @@
 {
-
+  "blend": {
+    "func": "add",
+    "srcrgb": "srcalpha",
+    "dstrgb": "1-srcalpha"
+  },
   "vertex": "jebbed/rendertype_custom_tint",
   "fragment": "jebbed/rendertype_custom_tint",
   "attributes": [
