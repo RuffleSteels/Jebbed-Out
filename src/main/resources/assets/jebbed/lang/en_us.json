@@ -1,0 +1,8 @@
+{
+  "key.jebbed.openConfig": "Open Jebbed Config Screen",
+  "jebbed.title": "Jebbed",
+  "jebbed.config.jebSpeed.min": "Normal",
+  "jebbed.config.jebSpeed.middle": "Speedy",
+  "jebbed.config.jebSpeed.max": "Epileptic",
+  "jebbed.config.title.speed": "Speed"
+}

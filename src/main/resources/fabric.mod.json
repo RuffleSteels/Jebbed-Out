@@ -3,23 +3,26 @@
   "id": "jebbed",
   "version": "1.0",
 
-  "name": "Firorize",
-  "description": "This client side mod allows full color customization over fire, depending on the biome it's in, or even the block it's on! It also has a fire height slider for an easy fix to that painfully large fire overlay. For a bonus, it fixes the bug where the soul fire did not produce a blue overlay!",
+  "name": "All Jebbed Out!",
+  "description": "Adds ability for all mobs (and armor) to go rainbow with the 'jeb_' name!",
   "authors": [
     "RuffleSteels"
   ],
   "contact": {
-    "homepage": "https://github.com/RuffleSteels/Firorize",
-    "sources": "https://github.com/RuffleSteels/Firorize",
-    "issues": "https://github.com/RuffleSteels/Firorize/issues"
+    "homepage": "https://github.com/RuffleSteels/Jebbed-Out",
+    "sources": "https://github.com/RuffleSteels/Jebbed-Out",
+    "issues": "https://github.com/RuffleSteels/Jebbed-Out/issues"
   },
 
   "license": "MIT License",
+  "icon": "assets/jebbed/Icon.png",
 
   "accessWidener" : "jebbed.accesswidener",
   "environment": "*",
   "entrypoints": {
-
+    "modmenu": [
+      "com.oscimate.jebbed.config.JebbedConfigModmenu"
+    ],
     "preLaunch": [ "com.llamalad7.mixinextras.MixinExtrasBootstrap::init" ],
     "client": [
       "com.oscimate.jebbed.Main"

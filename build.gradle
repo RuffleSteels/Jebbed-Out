@@ -15,6 +15,10 @@ archivesBaseName  = project.archives_base_name
 
 repositories {
 	maven {
+		name 'Terraformers'
+		url 'https://maven.terraformersmc.com/releases/'
+	}
+	maven {
 		url = "https://jitpack.io"
 	}
 	maven {
@@ -25,6 +29,10 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
+	maven {
+		name = 'Nucleoid'
+		url = 'https://maven.nucleoid.xyz/'
+	}
 }
 
 dependencies {
@@ -34,10 +42,20 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.4.1")))
 
 	include(implementation('org.apache.commons:commons-collections4:4.5.0-M2'))
+
+	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+	modImplementation(include("eu.pb4:placeholder-api:${project.text_placeholder_api_version}"))
+
+	modImplementation "maven.modrinth:iris:${project.iris_version}"
+
+	modImplementation("org.anarres:jcpp:1.4.14")
+	modImplementation("org.antlr:antlr4-runtime:4.13.1")
+	modImplementation("io.github.douira:glsl-transformer:2.0.1")
+
+	modImplementation "maven.modrinth:sodium:${project.sodium_version}"
 
 }
 

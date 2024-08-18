@@ -4,18 +4,15 @@
   "package": "com.oscimate.jebbed.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "fire_overlays.client.FireBlockInvoker"
   ],
   "client": [
-    "fire_overlays.client.ClientEntityMixin",
-    "fire_overlays.client.EntityRenderDispatcherMixin",
-    "fire_overlays.client.GameRendererMixin",
+    "fire_overlays.client.ArmorFeatureRendererMixin",
+    "fire_overlays.client.ElytraFeatureRendererMixin",
+    "fire_overlays.client.FeatureRendererMixin",
     "fire_overlays.client.GamRenMixin",
-    "fire_overlays.client.InGameOverlayRendererMixin",
-    "fire_overlays.client.NativeImageInvoker",
-    "fire_overlays.client.OscimateClientPlayNetworkHandler",
-    "fire_overlays.client.SpriteContentsInvoker",
-    "fire_overlays.client.SpriteLoaderMixin"
+    "fire_overlays.client.LivingEntityRendererMixin",
+    "fire_overlays.client.SheepWoolFeatureRendererMixin",
+    "fire_overlays.client.SlimeOverlayFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
