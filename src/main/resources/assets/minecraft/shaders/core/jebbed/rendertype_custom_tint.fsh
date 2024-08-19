@@ -8,7 +8,7 @@ uniform sampler2D Sampler0;
 uniform float FogStart;
 uniform float FogEnd;
 uniform vec4 FogColor;
-uniform int Time;
+uniform float Time;
 
 in float vertexDistance;
 //in vec4 vertexColor;
@@ -56,7 +56,7 @@ void main() {
     vec3 greyScale = vec3(.5, .5, .5);
 //    textureColor = vec4( vec3(dot( textureColor.rgb, greyScale)), textureColor.a);
     textureColor = (textureColor - 0.5) / 0.5 * 0.4 + 0.5;
-    vec3 initialHSV = vec3(Time/100f, 0.8f, .3f);
+    vec3 initialHSV = vec3(Time/200f, 0.8f, .3f);
     float v = initialHSV.y * 100 - 50;
     float hue = initialHSV.x;
     float result;

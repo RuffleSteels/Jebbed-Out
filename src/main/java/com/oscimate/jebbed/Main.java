@@ -19,7 +19,8 @@ public class Main implements ClientModInitializer {
 
     public static final ConfigManager CONFIG_MANAGER = new ConfigManager();
 
-    long counter = 0;
+    public static float counter = 0;
+    public static float previousCounter = 0;
     public static boolean irisInstalled = false;
     public static final KeyBinding configKeybind = KeyBindingHelper.registerKeyBinding(
             new KeyBinding("key.jebbed.openConfig", InputUtil.Type.KEYSYM, InputUtil.GLFW_KEY_J, "jebbed.title")
@@ -41,13 +42,6 @@ public class Main implements ClientModInitializer {
 
         irisInstalled = FabricLoader.getInstance().isModLoaded("iris");
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (GameRendererSetting.getRenderTypeCustomTint() != null) {
-                counter += ((Main.CONFIG_MANAGER.getJebbedSpeed())/5+1);
-                if (counter > 100) {
-                    counter = 0;
-                }
-                GameRendererSetting.getRenderTypeCustomTint().getUniform("Time").set((int)counter);
-            }
             if (client.world != null && client.player != null) {
                 if (client.currentScreen == null) {
                     while (configKeybind.isPressed()) {
