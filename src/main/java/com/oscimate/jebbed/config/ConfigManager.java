@@ -9,15 +9,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class ConfigManager {
-    public long getJebbedSpeed() {
+    public float getJebbedSpeed() {
         return jebbedSpeed;
     }
 
-    public void setJebbedSpeed(long jebbedSpeed) {
+    public void setJebbedSpeed(float jebbedSpeed) {
         this.jebbedSpeed = jebbedSpeed;
     }
 
-    private long jebbedSpeed;
+    private float jebbedSpeed;
 
     private static final Gson GSON = new Gson();
     public static Path file = FabricLoader.getInstance().getConfigDir().resolve("jebbed" + ".json");

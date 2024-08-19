@@ -24,4 +24,5 @@ public class GameRendererSetting extends GameRenderer {
     @Nullable
     public static ShaderProgram renderTypeCustomTint;
 
+
 }

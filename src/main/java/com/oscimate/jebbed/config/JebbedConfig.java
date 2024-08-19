@@ -3,13 +3,13 @@ package com.oscimate.jebbed.config;
 import com.oscimate.jebbed.Main;
 
 public class JebbedConfig {
-    public long getJebbedSpeed() {
+    public float getJebbedSpeed() {
         return jebbedSpeed;
     }
 
-    public void setJebbedSpeed(long jebbedSpeed) {
+    public void setJebbedSpeed(float jebbedSpeed) {
         this.jebbedSpeed = jebbedSpeed;
     }
 
-    private long jebbedSpeed = Main.CONFIG_MANAGER.getJebbedSpeed();
+    private float jebbedSpeed = Main.CONFIG_MANAGER.getJebbedSpeed();
 }
