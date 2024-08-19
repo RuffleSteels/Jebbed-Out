@@ -52,7 +52,7 @@ public class ConfigScreen extends Screen {
 
         RenderSystem.enableBlend();
         RenderSystem.setShaderTexture(0, id);
-        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
+        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         Matrix4f matrix4f = context.getMatrices().peek().getPositionMatrix();
         BufferBuilder bufferBuilder = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
         bufferBuilder.vertex(matrix4f, (float)x, (float)y, (float)z).texture(u1, v1).color(1.0f, 1.0f, 1.0f, alpha);
